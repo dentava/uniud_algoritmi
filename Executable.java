@@ -1,12 +1,33 @@
-public class Main {
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Executable {
     public static void main(String[] args) {
 
-        int k = 1;
-        int[] arr = new int[] { -201, -918, 154, 433, 162, -716, 56, -683, -101, -408 };
+        //int k = 3;
+        //int[] arr = new int[] { 5, 7, 11, 2, 8 };
 
-        System.out.println(quickSelect(arr, k-1, 0, arr.length-1));
+        Scanner myObj = new Scanner(System.in);
+
+        String str = myObj.nextLine();
+        int k = myObj.nextInt();
+
+        String[] sarr = str.split(" ");
+        int[] arr = stringToIntegerArray(sarr);
+
+        System.out.println(quickSelect(arr, k-1, 0, arr.length - 1));
 
     }
+
+    public static int[] stringToIntegerArray(String[] arr) {
+        int size = arr.length;
+        int[] intarr = new int[size];
+        for (int i = 0; i < size; i++) {
+            intarr[i] = Integer.parseInt(arr[i]);
+        }
+        return intarr;
+    }
+    
 
     public static int quickSelect(int[] arr, int k, int p, int q) {
         if (p <= q) {
