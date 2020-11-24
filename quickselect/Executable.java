@@ -1,11 +1,10 @@
+package quickselect;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class Executable {
     public static void main(String[] args) {
-
-        //int k = 3;
-        //int[] arr = new int[] { 5, 7, 11, 2, 8 };
 
         Scanner myObj = new Scanner(System.in);
 
