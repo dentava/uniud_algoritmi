@@ -1,7 +1,6 @@
 package quickselect;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Executable {
     public static void main(String[] args) {
