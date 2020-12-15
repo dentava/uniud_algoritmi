@@ -27,8 +27,8 @@ public class Executable {
 
     public static int quickerSelectCaller(int[] array, int indice) {
 
-        quickerSelect(array, indice, 0, array.length);
-        
+        quickerSelect(array, indice, 0, array.length-1);
+
     }
 
 
