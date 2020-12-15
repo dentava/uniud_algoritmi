@@ -12,7 +12,7 @@ public class Executable {
         String[] sarr = str.split(" ");
         int[] arr = stringToIntegerArray(sarr);
 
-        System.out.println(quickerSelect(arr, 4, 0, arr.length-1));
+        System.out.println(quickerSelectCaller(arr, 4));
 
     }
 
@@ -23,6 +23,12 @@ public class Executable {
             intarr[i] = Integer.parseInt(arr[i]);
         }
         return intarr;
+    }
+
+    public static int quickerSelectCaller(int[] array, int indice) {
+
+        quickerSelect(array, indice, 0, array.length);
+        
     }
 
 
