@@ -8,11 +8,12 @@ public class Executable {
         Scanner myObj = new Scanner(System.in);
 
         String str = myObj.nextLine();
+        int k = myObj.nextInt();
 
         String[] sarr = str.split(" ");
         int[] arr = stringToIntegerArray(sarr);
 
-        System.out.println(quickerSelectCaller(arr, 4));
+        System.out.println(quickerSelect(arr, k, 0, arr.length-1));
 
     }
 
@@ -23,12 +24,6 @@ public class Executable {
             intarr[i] = Integer.parseInt(arr[i]);
         }
         return intarr;
-    }
-
-    public static int quickerSelectCaller(int[] array, int indice) {
-
-        quickerSelect(array, indice, 0, array.length-1);
-
     }
 
 
