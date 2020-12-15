@@ -1,21 +1,28 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class MedianOfMedians {
+public class Executable {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
-        int[] vettore = new int[] {1, 5, 6, 2, 67, 45, 9, 4, 23, 32, 90, 13, 11, 80};
+        Scanner myObj = new Scanner(System.in);
 
+        String str = myObj.nextLine();
 
-        System.out.println(quickerSelect(vettore, 4, 0, vettore.length-1));
-        System.out.println(quickerSelect(vettore, 9, 0, vettore.length-1));
-        System.out.println("-----");
-        MergeSort.mergeSort(vettore, 0, vettore.length-1);
-        for (int i: vettore) { System.out.println(i); }
+        String[] sarr = str.split(" ");
+        int[] arr = stringToIntegerArray(sarr);
 
+        System.out.println(quickerSelect(arr, 4, 0, arr.length-1));
 
+    }
 
+    public static int[] stringToIntegerArray(String[] arr) {
+        int size = arr.length;
+        int[] intarr = new int[size];
+        for (int i = 0; i < size; i++) {
+            intarr[i] = Integer.parseInt(arr[i]);
+        }
+        return intarr;
     }
 
 
