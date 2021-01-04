@@ -4,8 +4,6 @@ public class Executable {
 
     public static void main(String[] args) {
 
-        int[] array = new int[] { 5, 7, 11, 8, 3, 8, 6, 9, 1, 78, 34 };
-
         Scanner myObj = new Scanner(System.in);
 
         String str = myObj.nextLine();
@@ -15,6 +13,8 @@ public class Executable {
         int[] arr = stringToIntegerArray(sarr);
 
         System.out.println(heapSelect(arr, k));
+
+        myObj.close();
 
     }
 
