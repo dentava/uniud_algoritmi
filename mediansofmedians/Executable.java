@@ -15,6 +15,8 @@ public class Executable {
 
         System.out.println(quickerSelect(arr, k-1, 0, arr.length-1));
 
+        myObj.close();
+
     }
 
     public static int[] stringToIntegerArray(String[] arr) {

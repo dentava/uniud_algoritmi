@@ -1,5 +1,3 @@
-package quickselect;
-
 import java.util.Scanner;
 
 public class Executable {
@@ -14,6 +12,8 @@ public class Executable {
         int[] arr = stringToIntegerArray(sarr);
 
         System.out.println(quickSelect(arr, k-1, 0, arr.length - 1));
+
+        myObj.close();
 
     }
 
