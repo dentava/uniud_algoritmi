@@ -27,16 +27,10 @@ public class Executable {
         return intarr;
     }
 
-    // Se noi cerchiamo il figlio sinistro di un elemento in posizione 1, per la
-    // Piazza staremo cercando il figlio di un elemento in posizione 2, per la
-    // Piazza figlio six sarebbe in posizione 4, per noi 3
-    // 4, 5, 10, 9
     public static void minHeapify(int[] A, int i, int heapsize) {
 
-        // Adattamento a indicizzazione di Java degli array
         int l = ((i + 1) * 2) - 1; // Posizione figlio sx
         int r = (((i + 1) * 2) - 1) + 1; // Posizione figlio dx
-        // int ultimaPosizione = A.length-1;
 
         int minimo = -1; // Posizione del minimo
 
@@ -63,7 +57,6 @@ public class Executable {
     }
 
     public static void buildMinHeap(int[] vettore) {
-
         for (int i = Math.floorDiv(vettore.length, 2); i >= 0; i--) {
             minHeapify(vettore, i, vettore.length - 1);
         }
@@ -77,22 +70,17 @@ public class Executable {
     }
 
     public static int heapSelect(int[] A, int k) {
-
         buildMinHeap(A);
         int[] H1 = A;
         int[] H2 = H1;
 
         int heapsize = A.length - 1;
 
-        // dopo k-1 iterazioni, la radice di H2 corrisponderà al k-esimo elemento +
-        // piccolo
         for (int i = 1; i < k; i++) {
             minHeapExtract(H2, heapsize);
             heapsize--;
         }
 
         return H2[0];
-
     }
-
 }
