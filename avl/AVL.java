@@ -36,7 +36,7 @@ class AVL {
         return (a > b) ? a : b;
     }
 
-    Node rightRotation(Node y) {
+    Node rightRotate(Node y) {
         Node x = y.left;
         Node T2 = x.right;
 
@@ -49,7 +49,7 @@ class AVL {
         return x;
     }
 
-    Node leftRotation(Node x) {
+    Node leftRotate(Node x) {
         Node y = x.right;
         Node T2 = y.left;
 
@@ -82,18 +82,18 @@ class AVL {
 
         int balance = getBalance(node);
 
-        if (balance > 1 && key < node.left.key) return rightRotation(node);
+        if (balance > 1 && key < node.left.key) return rightRotate(node);
 
-        if (balance < -1 && key > node.right.key) return leftRotation(node);
+        if (balance < -1 && key > node.right.key) return leftRotate(node);
 
         if (balance > 1 && key > node.left.key) {
-            node.left = leftRotation(node.left);
-            return rightRotation(node);
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
         }
 
         if (balance < -1 && key < node.right.key) {
-            node.right = rightRotation(node.right);
-            return leftRotation(node);
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
         }
 
         return node;
