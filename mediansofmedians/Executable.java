@@ -28,7 +28,7 @@ public class Executable {
         return intarr;
     }
 
-    public static int quickerSelect(int[] arr, int k, int p, int q) { //Controllare
+    public static int quickerSelect(int[] arr, int k, int p, int q) {
         if (p <= q) {
             int posizioneMedianOfMedians = partition(arr, p, q);
             if (posizioneMedianOfMedians == k)
@@ -124,64 +124,33 @@ public class Executable {
 
     public static int partition(int[] array, int p, int q) {
 
-    //for (int c : array) { System.out.println(c); }
-    //System.out.println("---");
-
-    int[] copia = new int[q-p+1];
-    int v=0;
-    for(int i=p; i<=q; i++) {
-        copia[v] = array[i];
-        v++;
-    }
-
-    //System.out.println("Copia:");
-    //for (int c : copia) { System.out.println(c); }
-    //System.out.println("---");
-
-
-    int posizioneMOM = -1;
-    int medianaDelleMediane = medianOfMedians(copia); //Qui c'è errore
-
-    //System.out.println("MOM:" + medianaDelleMediane);
-
-
-    //System.out.println("Array pre ricerca posizione MOM:");
-    //for (int c : array) { System.out.println(c); }
-    //System.out.println("---");
-
-
-    for (int i=0; i<array.length; i++) {
-        if (array[i] == medianaDelleMediane) posizioneMOM=i;
-    }
-
-    //System.out.println("Posizone MOM in array iniziale:" + posizioneMOM);
-
-    //for (int c : array) { System.out.println(c); }
-    //System.out.println("---");
-
-    scambia(array, posizioneMOM, q);
-
-    int i = p - 1;
-    int x = array[q];
-    for (int j = p; j <= q; j++) {
-        if (array[j] <= x) {
-            i++;
-            scambia(array, i, j);
+        int[] copia = new int[q-p+1];
+        int v=0;
+        for(int i=p; i<=q; i++) {
+            copia[v] = array[i];
+            v++;
         }
+
+        int posizioneMOM = -1;
+        int medianaDelleMediane = medianOfMedians(copia);
+
+        for (int i=0; i<array.length; i++) {
+            if (array[i] == medianaDelleMediane) posizioneMOM=i;
+        }
+
+        scambia(array, posizioneMOM, q);
+
+        int i = p - 1;
+        int x = array[q];
+        for (int j = p; j <= q; j++) {
+            if (array[j] <= x) {
+                i++;
+                scambia(array, i, j);
+            }
+        }
+
+        return i;
     }
-
-
-
-    //System.out.println("Inizio array dopo esecuzione partition");
-    //for (int z: array) { System.out.println(z);}
-    //System.out.println("Fine array dopo esecuzione partition");
-
-    //System.out.println("Fine esecuzione Partition");
-
-    //System.out.println("i:" + i);
-
-    return i;
-}
 
     public static void scambia(int[] arr, int i, int j) {
         int temp = arr[i];
