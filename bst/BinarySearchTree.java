@@ -44,7 +44,9 @@ public class BinarySearchTree {
         }
     }
 
-    void insert(int key, String alphanumeric) root = insertRec(root, key, alphanumeric);
+    void insert(int key, String alphanumeric){
+        root = insertRec(root, key, alphanumeric);
+    }
 
     Node insertRec(Node root, int key, String alphanumeric) {
 
