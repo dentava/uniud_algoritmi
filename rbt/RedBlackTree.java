@@ -13,7 +13,7 @@ class RedBlackTree {
             if (words[0].equals("insert")) {
                 rbTree.insert(Integer.parseInt(words[1]), words[2]);
             } else if (words[0].equals("show")) {
-                rbTree.printRec(rbTree.root);
+                rbTree.preOrder(rbTree.root);
                 System.out.println();
             } else if (words[0].equals("find")) {
                 System.out.println(rbTree.find(rbTree.root, Integer.parseInt(words[1])));
@@ -71,15 +71,6 @@ class RedBlackTree {
             System.out.println("NULL ");
         }
     } 
-
-    void printRec(Node n) {
-        if (n == null || n.key == 0) System.out.print("NULL ");
-        else {
-            System.out.print(n.key + ":" + n.alphanumeric + ":" + n.color + " ");
-            printRec(n.left);
-            printRec(n.right);
-        }
-    }
 
     public void leftRotate(Node nodo) {
         Node y = nodo.right;
