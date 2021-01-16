@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class StimaTempiMedi {
+public class STE {
 
     public static double ottieniRisoluzioneClock() {
 
@@ -39,7 +39,7 @@ public class StimaTempiMedi {
         double A = nMin;
         double B = Math.exp((Math.log(nMax) - Math.log(A)) / 99);
 
-        for (int j = 0; j < 100; j++) { // Numero di campioni/iterazioni (punti sul grafico)
+        for (int j = 0; j < 1; j++) { // Numero di campioni/iterazioni (punti sul grafico)
 
             int n = (int) (A * Math.pow(B, j)); // Distribuzione esponenziale
             // Perché ho bisogno di fare casting?
@@ -53,31 +53,17 @@ public class StimaTempiMedi {
             double tempoMedio = -1; // Solo per inizializzarlo
             int interoCasuale = generatoreInteroLimitatoSuperiorementeCasuale(n);
 
-            for (d = 0; d < 100; d++) {
+            double start = System.nanoTime();
+            double end;
+            int contatoreIterazioni = 0;
 
-                double start = System.nanoTime();
-                double end;
-                int contatoreIterazioni = 0;
+            popolaVettore(vettorePseudoCasuale, n);
 
-                do {
-                    popolaVettore(vettorePseudoCasuale, n);
+            for (int g = 0; g < vettorePseudoCasuale.length; g++)
+                System.out.print(vettorePseudoCasuale[g] + " ");
+            System.out.println();
+            System.out.println(interoCasuale + " " + n);
 
-                    HeapSelect.heapSelect(vettorePseudoCasuale, interoCasuale, n-1);
-                    end = System.nanoTime();
-                    contatoreIterazioni++;
-                } while ((end - start) < (risoluzioneClock / erroreRelativoMassimoAmmesso) + risoluzioneClock);
-
-                tempoMedio = (end - start) / contatoreIterazioni;
-                x = x + Math.pow(tempoMedio, 2.0);
-                y = y + tempoMedio;
-
-            }
-
-            //double deviazioneStandard = x / d - Math.pow(y / d, 2.0);
-            // System.out.println(vettorePseudoCasuale.length + " " + tempoMedio + " " +
-            // deviazioneStandard);
-            
-            System.out.println(n + " " + tempoMedio);
         }
 
     }
