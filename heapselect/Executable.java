@@ -29,8 +29,8 @@ public class Executable {
 
     public static void minHeapify(int[] A, int i, int heapsize) {
 
-        int l = ((i + 1) * 2) - 1; // Posizione figlio sx
-        int r = (((i + 1) * 2) - 1) + 1; // Posizione figlio dx
+        int l = ((i + 1) * 2) - 1; // Posizione sx
+        int r = (((i + 1) * 2) - 1) + 1; // Posizione dx
 
         int minimo = -1; // Posizione del minimo
 
